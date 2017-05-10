@@ -2,9 +2,10 @@
 stages:
 - name: BUILD
   inputs:
-  - type: git
+  - url: https://github.com/zivondai/scalable-wordpress-deployment-on-kubernetes-20170510125307267.git
+    type: git
     branch: master
-    service: ${SAMPLE_REPO}
+    dir_name: null
   triggers:
   - type: commit
   jobs:
@@ -38,7 +39,7 @@ stages:
   - name: Deploy
     type: deployer
     target:
-      region_id: ${PROD_REGION_ID}
+       region_id: ${PROD_REGION_ID}
       organization: ${PROD_ORG_NAME}
       space: ${PROD_SPACE_NAME}
       application: Pipeline
